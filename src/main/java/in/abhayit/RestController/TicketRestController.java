@@ -18,6 +18,7 @@ import in.abhayit.response.Ticket;
 
 @RestController
 @RequestMapping("/ticket")
+// Optional: CrossOrigin, can be removed since GlobalCorsConfig handles it
 @CrossOrigin(origins = "*")
 public class TicketRestController {
 
