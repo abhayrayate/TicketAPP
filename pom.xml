@@ -11,7 +11,7 @@
 	<groupId>in.abhayit</groupId>
 	<artifactId>31-RestAPI-Ticketapi-Practice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>31-RestAPI-Ticketapi-Practice</name>
 	<description> Spring Boot Rest</description>
 	<url/>
@@ -82,6 +82,7 @@
 	</dependencies>
 
 	<build>
+	<finalName>irctc-api</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
