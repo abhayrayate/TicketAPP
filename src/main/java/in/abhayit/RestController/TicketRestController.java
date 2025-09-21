@@ -23,6 +23,16 @@ public class TicketRestController {
     private Map<Integer, Ticket> tickets = new ConcurrentHashMap<>();
     private AtomicInteger ticketCounter = new AtomicInteger(1000); // safe incremental ID
 
+    
+    @RestController
+    public class HomeController {
+        @GetMapping("/")
+        public String home() {
+            return "Ticket App is running!";
+        }
+    }
+
+    
     @PostMapping(consumes = { "application/xml", "application/json" }, 
                  produces = { "application/xml", "application/json" })
     public Ticket bookTicket(@RequestBody Passanger passdata) {
