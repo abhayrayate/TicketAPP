@@ -18,7 +18,7 @@ import in.abhayit.response.Ticket;
 
 @RestController
 @RequestMapping("/ticket")
-@CrossOrigin(origins = "*")  // CORS enabled
+@CrossOrigin(origins = "*")
 public class TicketRestController {
 
     private Map<Integer, Ticket> tickets = new ConcurrentHashMap<>();
