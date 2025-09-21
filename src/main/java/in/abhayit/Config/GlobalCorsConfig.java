@@ -13,10 +13,10 @@ public class GlobalCorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                // Base URL only, path removed
+               
                 registry.addMapping("/**")
-                        .allowedOrigins("http://ticketapp.up.railway.app")
-                        .allowedMethods("*");
+                        .allowedOrigins("*")
+                          .allowedMethods("*");
             }
         };
     }

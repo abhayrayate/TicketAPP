@@ -18,8 +18,7 @@ import in.abhayit.response.Ticket;
 
 @RestController
 @RequestMapping("/ticket")
-// Optional: CrossOrigin, can be removed since GlobalCorsConfig handles it
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class TicketRestController {
 
     private Map<Integer, Ticket> tickets = new ConcurrentHashMap<>();
@@ -28,13 +27,14 @@ public class TicketRestController {
     @PostMapping(consumes = {"application/json" }, 
                  produces = {"application/json" })
     public Ticket bookTicket(@RequestBody Passanger passdata) {
+    	
         Ticket t = new Ticket();
         int ticketid = ticketCounter.getAndIncrement();
 
         t.setTicketid(ticketid);
         t.setTicketfrom(passdata.getFrom());
         t.setTicketto(passdata.getTo());
-        t.setTicketno(10000 + ticketid);  // unique ticket number
+        t.setTicketno(10000 + ticketid);  
         t.setTicketprice(500);
 
         tickets.put(ticketid, t);
@@ -42,7 +42,9 @@ public class TicketRestController {
     }
 
     @GetMapping(value = "/{ticketid}", produces = {"application/json", "application/xml"})
+    
     public ResponseEntity<Ticket> getTicket(@PathVariable Integer ticketid) {
+    	
         Ticket ticket = tickets.get(ticketid);
         if (ticket == null) {
             return ResponseEntity.notFound().build();
