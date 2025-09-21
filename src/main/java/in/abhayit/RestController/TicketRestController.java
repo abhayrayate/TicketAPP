@@ -24,8 +24,8 @@ public class TicketRestController {
     private Map<Integer, Ticket> tickets = new ConcurrentHashMap<>();
     private AtomicInteger ticketCounter = new AtomicInteger(1000);
 
-    @PostMapping(consumes = { "application/xml", "application/json" }, 
-                 produces = { "application/xml", "application/json" })
+    @PostMapping(consumes = {"application/json" }, 
+                 produces = {"application/json" })
     public Ticket bookTicket(@RequestBody Passanger passdata) {
         Ticket t = new Ticket();
         int ticketid = ticketCounter.getAndIncrement();
@@ -40,7 +40,7 @@ public class TicketRestController {
         return t;
     }
 
-    @GetMapping(value = "/{ticketid}", produces = { "application/xml", "application/json" })
+    @GetMapping(value = "/{ticketid}", produces = {"application/json", "application/xml"})
     public ResponseEntity<Ticket> getTicket(@PathVariable Integer ticketid) {
         Ticket ticket = tickets.get(ticketid);
         if (ticket == null) {
