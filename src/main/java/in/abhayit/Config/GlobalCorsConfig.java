@@ -15,7 +15,7 @@ public class GlobalCorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 // Base URL only, path removed
                 registry.addMapping("/**")
-                        .allowedOrigins("http://ticketapp.up.railway.app")
+                        .allowedOrigins("*")
                         .allowedMethods("*");
             }
         };
