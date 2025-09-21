@@ -14,7 +14,7 @@ public class GlobalCorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://ticketapp.up.railway.app/swagger-ui/index.html")
+                        .allowedOrigins("http://ticketapp.up.railway.app/swagger-ui/index.html")
                         .allowedMethods("*");
             }
         };
